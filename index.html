@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>This is my Angular app</title>
+<style>
+div h1
+{
+    color:green;
+    margin-right: 10px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 2em;
+}
+    
+    
+div p
+{
+    color:orangered;
+}
+    
+.bottomContainer
+{
+    height:600px;
+    background-color:black;
+}
+    
+.videoContainer
+{
+    background: linear-gradient(blue,white);
+}
+    
+.center
+    {
+        margin-left:200px;
+        margin-top: 20px;
+    }
+    
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: aqua;
+}
+    
+.firstContainer
+{
+    width:100%;
+    height:1000px;
+    background-color:beige; 
+}
+    
+.icons
+    {
+        color:green;
+    }
+.fit
+    {
+        max-height: 100%;
+        max-width: 100%;
+        animation-name: example;
+        animation-duration: 5s;
+    }
+    
+.bordered
+    {
+        border: 15px green solid;
+    }
+    
+@keyframes example {
+    0%   {max-width:0%; max-height:0%;}
+    25%  {max-width:25%; max-height:25%;}
+    50%  {max-width:50%; max-height:50%;}
+    75%  {max-width:75%; max-height:75%;}
+    100% {max-width:100%; max-height:100%;}
+}
+</style>
+<script src="jquery-1.12.3.min.js"></script>    
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">My Angular Website</a>
+    </div>
+    <div ng-controller="navController" class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#div1">Angular Hide/Show Bootstrap Table/Animations</a></li>
+        <li><a href="#div2">Bootstrap Glyphicons and Columns</a></li> 
+        <li><a href="#div3">HTML5 Video/CSS3 Linear Gradient Background</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container firstContainer" ng-controller="myController" id="div1">
+    <h1>This is an Angular Table</h1>
+    <input type="checkbox" ng-model="showTable"/>Use this checkbox to show a Bootstrap hover table, and an image animation using CSS3
+    <table ng-show="showTable" class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+        </tr>
+        <tr ng-repeat="student in users.student">
+            <td>{{student.name}}</td>
+            <td>{{student.number}}</td>
+        </tr>
+    </table>
+    <img class="fit" src="images/landscape.jpg" ng-show="showTable"/>
+</div>
+<div id="div2" class="container bottomContainer">
+    <div class="row bordered">
+        <div class="col-md-8">
+        <span class="glyphicon glyphicon-music icons"></span>
+        <p>How big is this page??? This div is 8 columns wide</p>
+        </div>
+        <div class="col-md-4">
+        <span class="glyphicon glyphicon-search icons"></span>
+        <p>This div is 4 columns wide</p>
+        </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class="row bordered">
+        <div class="col-md-4">
+        <span class="glyphicon glyphicon-cloud icons"></span>
+        <p>How big is this page??? This div is 4 columns wide</p>
+        </div>
+        <div class="col-md-4">
+        <span class="glyphicon glyphicon-film icons"></span>
+        <p>This div is 4 columns wide</p>
+        </div>
+         <div class="col-md-4">
+        <span class="glyphicon glyphicon-off icons"></span>
+        <p>How big is this page??? This div is 4 columns wide</p>
+        </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class="row bordered">
+        <div class="col-md-3">
+        <span class="glyphicon glyphicon-signal icons"></span>
+        <p>How big is this page??? This div is 3 columns wide</p>
+        </div>
+        <div class="col-md-3">
+        <span class="glyphicon glyphicon-lock icons"></span>
+        <p>This div is 3 columns wide</p>
+        </div>
+        <div class="col-md-3">
+        <span class="glyphicon glyphicon-glass icons"></span>
+        <p>This div is 3 columns wide</p>
+        </div>
+        <div class="col-md-3">
+        <span class="glyphicon glyphicon-envelope icons"></span>
+        <p>This div is 3 columns wide</p>
+        </div>
+    </div>
+</div>
+<div id="div3" class="container videoContainer">
+<button class="btn btn-success center" onclick="playPause()"><span class="glyphicon glyphicon-play"><span class="glyphicon glyphicon-pause"></span></span></button>
+<button class="btn btn-info" style="margin-top:20px;" onclick="makeBig()">X2</button>
+<button class="btn btn-info" style="margin-top:20px;" onclick="makeSmall()">X-2</button>
+<button class="btn btn-danger" style="margin-top:20px;" onclick="makeNormal()">X1</button>
+<br><br>
+<video id="myVideo" width="420" class="center">
+    <source src="SampleVideo_720x480_5mb.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+</div>
+<script>
+var myVideo = document.getElementById("myVideo");
+
+function playPause()
+{
+    if(myVideo.paused)
+    {
+        myVideo.play();    
+    } else 
+    {
+        myVideo.pause();    
+    }
+}
+
+function makeBig()
+{
+    myVideo.width=600;
+}
+
+function makeSmall()
+{
+    myVideo.width=320;
+}
+
+function makeNormal()
+{
+    myVideo.width=420;
+}
+</script>
+</body>
+</html>
