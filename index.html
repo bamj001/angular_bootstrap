@@ -97,12 +97,65 @@ div p
         <li><a href="#div3">HTML5 Video/CSS3 Linear Gradient Background</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><button type="button" class="btn btn-md" style="margin-top:8px;margin-right:2px;" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span>Sign Up</button></li>
+        <li><button type="button" class="btn btn-md" style="margin-top:8px;" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in" style="margin-right:4px;"></span>Login</button></li>
       </ul>
     </div>
   </div>
 </nav>
+<div id="signUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Sign Up Dialog</h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" class="form-control"/>
+                    </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control" />
+                    </div>
+                <div class="form-group">    
+                    <input type="submit" class="btn btn-success" value="Sign Up" />
+                </div>
+            </form>
+                <p>Please enter your email address and password in order to sign up</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Login Dialog</h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div class="form-group"style="float:left;margin-right:3px;">
+                    <input type="email" placeholder="Email" class="form-control"/>
+                    </div>
+                <div class="form-group"style="float:left;margin-right:3px;">
+                    <input type="password" placeholder="Password" class="form-control" />
+                    </div>
+                <div class="form-group"style="float:left;">    
+                    <input type="submit" class="btn btn-success" value="Login" />
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>    
 <div class="container firstContainer" ng-controller="myController" id="div1">
     <h1>This is an Angular Table</h1>
     <input type="checkbox" ng-model="showTable"/>Use this checkbox to show a Bootstrap hover table, and an image animation using CSS3
